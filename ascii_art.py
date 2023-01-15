@@ -4,6 +4,10 @@ from tkinter import Text, INSERT, filedialog
 from datetime import datetime
 
 
+'''
+Simply run this script to have ascii fun!
+'''
+
 size_v = (100, 50)
 
 image_selected = "cat.png"
