@@ -1,5 +1,6 @@
 """
-Code mainly from https://github.com/dropbox/dropbox-sdk-python/blob/master/example/back-up-and-restore/backup-and-restore-example.py
+Code mainly from 
+https://github.com/dropbox/dropbox-sdk-python/blob/master/example/back-up-and-restore/backup-and-restore-example.py
 
 But with modification to work with it from another file
 """
@@ -25,6 +26,7 @@ class SaveToDropbox:
     dbx = None
 
     # Use initializer to create instance and save to dropbox logic at once
+    # Some code from link, but with modifications
     def __init__(self, file_path: str, backup_path: str):
         '''
         Saves txt files to dropbox

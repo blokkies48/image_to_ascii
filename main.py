@@ -37,7 +37,9 @@ class App:
             # Iterate over the pixels and convert them to ASCII characters
             ascii_image = "".join([characters[pixel // 8] for pixel in pixels])
             # Split the ASCII image into lines
-            ascii_image = "\n".join([ascii_image[i:i+img.width] for i in range(0, len(ascii_image), img.width)])
+            ascii_image = "\n".join(
+                [ascii_image[i:i+img.width] for 
+                i in range(0, len(ascii_image), img.width)])
             return ascii_image
 
 
@@ -45,7 +47,9 @@ class App:
         '''
         Runs when 'upload' is selected to get image from pc
         '''
-        root.image_selected = filedialog.askopenfilename(initialdir="/Pictures", title="Select a file", filetypes = (('PNG', '*.png'),('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), ("all files", "*.*")))
+        root.image_selected = filedialog.askopenfilename(
+            initialdir="/Pictures", title="Select a file", filetypes = 
+            (('PNG', '*.png'),('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), ("all files", "*.*")))
         self.display_image()
 
     def display_image(self):
@@ -72,7 +76,9 @@ class App:
         result = filedialog.asksaveasfilename(initialdir="/Pictures", title="Select file",
         initialfile=f"{self.now}.jpeg",
         filetypes=(
-            ('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), ('PNG', '*.png'), ('BMP', ('*.bmp', '*.jdib')), ('GIF', '*.gif')))
+            ('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), 
+            ('PNG', '*.png'), ('BMP', ('*.bmp', '*.jdib')), 
+            ('GIF', '*.gif')))
 
         # Save image
         if result:
