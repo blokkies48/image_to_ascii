@@ -9,16 +9,6 @@ This is a standalone project. You will only need three files.
 - dropbox_save.py
 - requirements.txt 
 
-#### Continue to follow the instructions on "Running the app from the script"
----
-
-## Potential of the app!
-![alt text](https://github.com/blokkies48/image_to_ascii/blob/master/Images/162023.jpeg)
-
-## The UI and App
-![alt text](https://github.com/blokkies48/image_to_ascii/blob/master/Images/off_the_app.jpg)
-
-
 ### Running the app from the script
 - Make sure to have python 3.10 or higher installed.
 - Create a virtual environment, not a requirement but recommended.
@@ -27,6 +17,14 @@ This is a standalone project. You will only need three files.
 pip install -r requirements.txt
 ```
 - Simply run main.py 
+---
+
+## Potential of the app!
+![alt text](https://github.com/blokkies48/image_to_ascii/blob/master/Images/162023.jpeg)
+
+## The UI and App
+![alt text](https://github.com/blokkies48/image_to_ascii/blob/master/Images/off_the_app.jpg)
+
 
 ### How the app works
 Firstly you will have to select 'upload' to upload a image from your pc, preferably a (png) image.
