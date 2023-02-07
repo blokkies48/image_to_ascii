@@ -9,17 +9,21 @@ from dropbox_save import SaveToDropbox
 Simply run this script to have ascii fun!
 '''
 class App:
+    '''
+    Class contains all the logic for the application
+    '''
+    # Class variables
     size_v:tuple = (100, 50)
-
     image_selected:str = ""
     text:str = ''
+    now:datetime = datetime.now().strftime("%H%M%S")
 
     # Gen ascii aglo
     def image_to_ascii(self,file_path):
         '''
         :param: str - Takes a file path where ascii will be saved
         '''
-
+        # ChatGTP helped me here, but did a few modifications
         # Open the image file
         with Image.open(file_path) as img:
             # Resize the image to a smaller size
@@ -37,17 +41,16 @@ class App:
             return ascii_image
 
 
-
     def upload_image(self):
         '''
-        Runs when select upload to get image from pc
+        Runs when 'upload' is selected to get image from pc
         '''
         root.image_selected = filedialog.askopenfilename(initialdir="/Pictures", title="Select a file", filetypes = (('PNG', '*.png'),('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), ("all files", "*.*")))
         self.display_image()
 
     def display_image(self):
         '''
-        Runs algo on image then returns ascii text of image
+        Runs algo on image then generates ascii image on the screen
         '''
         global text # Do not like using global but works here
 
@@ -60,15 +63,14 @@ class App:
         # Add the tag from start to end text
         text.tag_add("center", 1.0, "end")
         
-
     # Save to pc
     def save_pic(self):
-
-        # Use for saving the image name gets unique name every time
-        now = datetime.now().strftime("%H%M%S")
+        '''
+        Saves image to the pc
+        '''
         # Save image type
         result = filedialog.asksaveasfilename(initialdir="/Pictures", title="Select file",
-        initialfile=f"{now}.jpeg",
+        initialfile=f"{self.now}.jpeg",
         filetypes=(
             ('JPEG', ('*.jpg', '*.jpeg', '*.jpe')), ('PNG', '*.png'), ('BMP', ('*.bmp', '*.jdib')), ('GIF', '*.gif')))
 
@@ -83,14 +85,20 @@ class App:
 
     # Saves to dropbox
     def save_to_dropbox(self):
-        now = datetime.now().strftime("%H%M%S")
-        with open(str(now) + ".txt", 'w') as f:
+        '''
+        Runs dropbox script to save image to dropbox
+        '''
+        # Create relevant text file
+        with open(str(self.now) + ".txt", 'w') as f:
             f.write(text.get(1.0, "end-1c"))
         # Calls on dropbox script 
-        SaveToDropbox(str(now) + ".txt","/" + str(now) + ".txt")
+        SaveToDropbox(str(self.now) + ".txt","/" + str(self.now) + ".txt")
 
-    # Used to resize the image
+    
     def resize(self):
+        '''
+        Used to resize image
+        '''
         self.size_v = (scale_1.get(), scale_2.get())
         self.display_image()
 
