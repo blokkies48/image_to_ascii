@@ -19,6 +19,7 @@ class App:
     text:Text = ''
     now:datetime = datetime.now().strftime("%H%M%S")
 
+    # Create app when calling class
     def __init__(self):
         root: tk = tk.Tk()
         root.title("Image to ascii conversion")
