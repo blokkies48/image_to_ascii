@@ -12,7 +12,7 @@ from dropbox.exceptions import ApiError, AuthError
 
 
 # My personal token (Replace with own)
-TOKEN = 'sl.BYX4WMpdm4ddGKYOZs4Wpq04Hqs0sCkuTk88AyG7qqrwkJdfV_ZGh8xxhoQaaFVYVdcntaJ6_2eHhKzNrKkLVRzlRNxq196aH0tbjBvUXa8xj4KdbZTHgIio73clqvNtFv7S2Tc'
+TOKEN = ''
 
 # Allows me to use this in another file
 # Code I added
@@ -37,9 +37,7 @@ class SaveToDropbox:
         self.local_file = file_path
         self.backup_path = backup_path
         if (len(TOKEN) == 0):
-            sys.exit("ERROR: Looks like you didn't add your access token. "
-                "Open up backup-and-restore-example.py in a text editor and "
-                "paste in your token in line 14.")
+            print("No token...")
 
         # Create an instance of a Dropbox class, which can make requests to the API.
         print("Creating a Dropbox object...")
